@@ -1,0 +1,11 @@
+<br><br><br>
+<div *ngIf="currentUser" class="user-details-container">
+    <div class="user-card">
+        <h2>Dobrodošli, {{ currentUser.korime }}</h2>
+        <div class="user-info">
+            <p> Vaš tajni ključ je: {{currentUser.totp_tajniKljuc}}</p>
+            <p> Status aktiviranosti dvorazinske autenfitikacije: {{currentUser.two_factor}}</p>
+        </div>
+      </div>
+<button (click)="azuriraj2F()">Uključi/Isključi dvorazinsku</button>
+</div>

@@ -1,0 +1,129 @@
+/* person-details.component.scss */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .row {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  strong {
+    color: #333;
+  }
+  
+  /* Person details styling */
+  .person-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .person-details .col-md-4 {
+    max-width: 250px;
+  }
+  
+  .person-details .col-md-8 {
+    flex: 1;
+  }
+  
+  .person-details img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Gallery Styling */
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .image-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Styling */
+  .table {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .table td {
+    background-color: #fff;
+    color: #666;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table img {
+    max-width: 60px;
+    border-radius: 5px;
+  }
+  
+  /* Responsivnost za mobilne uređaje */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+    }
+  
+    .table th, .table td {
+      font-size: 1rem;
+    }
+  
+    .image-gallery {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  

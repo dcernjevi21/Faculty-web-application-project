@@ -1,0 +1,85 @@
+
+  <div class="form-container">
+    <div class="form-card">
+      <h2>Registration Form</h2>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="username">Korisničko ime*</label>
+          <input 
+            type="text" 
+            id="username"
+            formControlName="username"
+            min="3"
+            max="100"
+            [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+          >
+          <div *ngIf="submitted && f['username'].errors" class="error-message">
+            <div *ngIf="f['username'].errors['required']">Korisničko ime je obavezno</div>
+            <div *ngIf="f['username'].errors['minlength']">Minimalno 3 znakova za korisničko ime</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input 
+            type="email" 
+            id="email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+          >
+          <div *ngIf="submitted && f['email'].errors" class="error-message">
+            <div *ngIf="f['email'].errors['required']">Email je obavezno polje</div>
+            <div *ngIf="f['email'].errors['email']">Molim unesite ispravan email</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Lozinka*</label>
+          <input 
+            type="password" 
+            id="password"
+            formControlName="password"
+            min="3"
+            max="100"
+            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+          >
+          <div *ngIf="submitted && f['password'].errors" class="error-message">
+            <div *ngIf="f['password'].errors['required']">Lozinka je obavezno polje</div>
+            <div *ngIf="f['password'].errors['minlength']">Lozinka mora biti sastavljena od barem od 3 znakova</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="firstName">Ime </label>
+          <input type="text" id="firstName" formControlName="firstName">
+        </div>
+  
+        <div class="form-group">
+          <label for="lastName">Prezime</label>
+          <input type="text" id="lastName" formControlName="lastName">
+        </div>
+  
+        <div class="form-group">
+          <label for="address">Adresa</label>
+          <input type="text" id="address" formControlName="address">
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group half">
+            <label for="telephone">Telefon</label>
+            <input type="text" id="telephone" formControlName="telephone">
+          </div>
+  
+          <div class="form-group half">
+            <label for="birthDate">Datum rođenja</label>
+            <input type="date" id="birthDate" formControlName="birthDate">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <button type="submit" class="submit-button">Registriraj se</button>
+        </div>
+      </form>
+    </div>
+  </div>

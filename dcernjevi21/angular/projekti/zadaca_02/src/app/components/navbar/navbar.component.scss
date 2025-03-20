@@ -1,0 +1,59 @@
+
+$nav-bg-color: #2c3e50;  
+$nav-text-color: #ecf0f1; 
+$nav-hover-color: #3498db; 
+$nav-active-color: #e74c3c; 
+
+.navbar {
+
+  position: fixed;       
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $nav-bg-color;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  z-index: 1000;        
+  
+
+  .nav-left {
+    display: flex;        
+    justify-content: center;
+    align-items: center;  
+    list-style: none;      
+    margin: 0;
+    padding: 0;
+    height: 60px;      
+    
+
+    li {
+      margin: 0 15px;   
+      
+    
+      .nav-link {
+        color: $nav-text-color;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        
+     
+        &:hover {
+          background-color: $nav-hover-color;
+          color: white;
+        }
+        
+  
+        &.active {
+          background-color: $nav-active-color;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+
+body {
+  padding-top: 60px;  
+}

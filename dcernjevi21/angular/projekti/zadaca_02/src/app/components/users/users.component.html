@@ -1,0 +1,56 @@
+<div class="container">
+        <h2>Korisnici</h2>
+      
+        <!-- Loading spinner -->
+        <div *ngIf="loading" class="loading">
+          Učitavanje...
+        </div>
+      
+        <!-- Error message -->
+        <div *ngIf="error" class="error">
+          {{ error }}
+        </div>
+      
+        <!-- Users table -->
+        <div *ngIf="!loading && !error && users.length > 0" class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Korisničko ime</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Adresa</th>
+                <th>Telefon</th>
+                <th>Datum rođenja</th>
+                <th>Tip korisnika</th>
+                <th>Ima pristup REST servisu</th>
+                <th>Zatražio pristup</th>
+                <th>Pristup</th>
+                <th>Brisanje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.email }}</td>
+                <td>{{ user.korime }}</td>
+                <td>{{ user.ime}}</td>
+                <td>{{ user.prezime}}</td>
+                <td>{{ user.adresa}}</td>
+                <td>{{ user.telefon }}</td>
+                <td>{{ user.datum_rodenja}}</td>
+                <td>{{ user.tip_korisnika_id}}</td>
+                <td>{{ user.ima_pristup }}</td>
+                <td>{{ user.zatrazio_pristup }}</td>
+                <td> <button (click)="giveAccess(user)"> Daj </button> <button (click)="removeAccess(user)"> Makni </button> </td>
+                <td> <button (click)="deleteUser(user)"> Izbriši </button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <!-- No users message -->
+        <div *ngIf="!loading && !error && users.length === 0" class="no-data">
+          Nema dostupnih korisnika.
+        </div>
+      </div>

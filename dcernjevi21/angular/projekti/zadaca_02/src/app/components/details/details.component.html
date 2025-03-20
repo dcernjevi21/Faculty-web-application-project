@@ -1,0 +1,65 @@
+<!-- person-details.component.html -->
+<div class="container mt-4" *ngIf="person">
+    <!-- Person Details -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <img 
+          [src]="imageBaseUrl + person.profile_path" 
+          [alt]="person.name"
+          class="img-fluid rounded"
+          *ngIf="person.profile_path">
+      </div>
+      <div class="col-md-8">
+        <h2>{{ person.name }}</h2>
+        <p><strong>ime i prezime</strong> {{ person.name }}</p>
+        <p><strong>Poznat po:</strong> {{ person.known_for }}</p>
+        <p><strong>Popularnost:</strong> {{ person.popularity }}</p>
+      </div>
+    </div>
+  
+    <!-- Image Gallery -->
+    <h3 class="mb-3">Galerija</h3>
+    <div class="row">
+      <div class="col-md-3 mb-3" *ngFor="let image of images">
+        <img 
+          [src]="imageBaseUrl + image.file_path" 
+          class="img-fluid rounded"
+          alt="Gallery image">
+      </div>
+    </div>
+  
+    <!-- Movies Table -->
+    <h3 class="mb-3 mt-4">Filmovi</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Poster</th>
+            <th>Naslov</th>
+            <th>Originalni naslov</th>
+            <th>Jezik</th>
+            <th>Datum izdavanja</th>
+            <th>Popularnost</th>
+            <th>Lik</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies">
+            <td>
+              <img 
+                [src]="imageBaseUrl + movie.poster_path" 
+                [alt]="movie.title"
+                class="img-thumbnail"
+                style="width: 50px;"
+                *ngIf="movie.poster_path">
+            </td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.original_title }}</td>
+            <td>{{ movie.original_language }}</td>
+            <td>{{ movie.release_date | date }}</td>
+            <td>{{ movie.popularity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

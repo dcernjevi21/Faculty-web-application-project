@@ -1,0 +1,129 @@
+<div class="container mx-4 my-4">
+  <!-- Filter Form -->
+  <form [formGroup]="filterForm" (ngSubmit)="filtriraj()" class="mb-4">
+    <div class="flex gap-4 items-end">
+      <div class="form-group">
+        <label for="datumOd" class="block mb-2">Datum od:</label>
+        <input
+          type="date"
+          id="datumOd"
+          formControlName="datumOd"
+          class="form-control p-2 border rounded"
+        />
+      </div>
+      <div class="form-group">
+        <label for="datumDo" class="block mb-2">Datum do:</label>
+        <input
+          type="date"
+          id="datumDo"
+          formControlName="datumDo"
+          class="form-control p-2 border rounded"
+        />
+      </div>
+      <button
+        type="submit"
+        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        Filtriraj
+      </button>
+    </div>
+  </form>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="text-center py-4">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Movies Table -->
+  <div *ngIf="!isLoading" class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Poster
+          </th>
+          <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Naslov
+          </th>
+          <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Originalni naslov
+          </th>
+          <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Datum izlaska
+          </th>
+          <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Jezik
+          </th>
+          <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Popularnost
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let film of filmovi">
+          <td class="px-6 py-4 whitespace-nowrap">
+            <img
+              [src]="'https://image.tmdb.org/t/p/w92' + film.poster_path"
+              [alt]="film.title"
+              class="h-20 w-auto rounded"
+              *ngIf="film.poster_path"
+            />
+            <div *ngIf="!film.poster_path" class="h-20 w-14 bg-gray-200 rounded flex items-center justify-center">
+              No image
+            </div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            {{ film.title }}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            {{ film.original_title }}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            {{ film.release_date | date:'dd.MM.yyyy' }}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap uppercase">
+            {{ film.original_language }}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            {{ film.popularity | number:'1.0-0' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- No Results Message -->
+  <div *ngIf="!isLoading && filmovi.length === 0" class="text-center py-4">
+    Nema pronađenih filmova.
+  </div>
+
+  <!-- Pagination -->
+  <div *ngIf="!isLoading && filmovi.length > 0" class="flex justify-center mt-4">
+    <nav aria-label="Page navigation">
+      <ul class="flex list-none">
+        <li>
+          <button
+            [disabled]="currentPage === 1"
+            (click)="promijeniStranicu(currentPage - 1)"
+            class="px-3 py-2 border rounded-l hover:bg-gray-100 disabled:opacity-50"
+          >
+            Previous
+          </button>
+        </li>
+        <li>
+          <button
+            (click)="promijeniStranicu(currentPage + 1)"
+            class="px-3 py-2 border rounded-r hover:bg-gray-100"
+          >
+            Next
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <span class="ml-4 py-2">
+      Stranica: {{ currentPage }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div *ngIf="currentUser" class="user-details-container">
+  <div class="user-card">
+    <h2>Dobrodošli, {{ currentUser.korime }}</h2>
+    <div class="user-info">
+      <p><strong>Email:</strong> {{ currentUser.email }}</p>
+      <p><strong>Lozinka:</strong> {{ currentUser.lozinka }}</p>
+      <p><strong>Ime:</strong> {{ currentUser.ime }}</p>
+      <p><strong>Prezime:</strong> {{ currentUser.prezime }}</p>
+      <p><strong>Adresa:</strong> {{ currentUser.adresa }}</p>
+      <p><strong>Telefon:</strong> {{ currentUser.telefon }}</p>
+      <p><strong>Datum rođenja:</strong> {{ currentUser.datum_rodenja }}</p>
+      <p><strong>Tip korisnika ID:</strong> {{ currentUser.tip_korisnika_id }}</p>
+      <p><strong>Ima pristup:</strong> {{ currentUser.ima_pristup }}</p>
+      <p><strong>Zatražio pristup:</strong> {{ currentUser.zatrazio_pristup }}</p>
+      <button> Daj zahtjev za pristup </button>
+    </div>
+  </div>
+</div>

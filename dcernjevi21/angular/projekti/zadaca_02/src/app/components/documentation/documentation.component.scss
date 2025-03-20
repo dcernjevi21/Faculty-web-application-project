@@ -1,0 +1,113 @@
+/* Definiraj varijable za boje i fontove */
+$primary-color: #3498db;
+$secondary-color: #ecf0f1;
+$background-color: #f4f7f6;
+$text-color: #333;
+$heading-color: #2c3e50;
+$table-header-bg: $primary-color;
+$table-row-bg: $secondary-color;
+$even-row-bg: #f9f9f9;
+$border-color: #ddd;
+$font-family: 'Arial', sans-serif;
+
+/* Global styles */
+body {
+    font-family: $font-family;
+    background-color: $background-color;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    color: $heading-color;
+    margin-bottom: 15px;
+}
+
+/* Container */
+#container-documentation {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Author section */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+p:last-of-type {
+    font-style: italic;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid $border-color;
+    }
+
+    th {
+        background-color: $table-header-bg;
+        color: white;
+        font-weight: bold;
+    }
+
+    td {
+        background-color: $table-row-bg;
+    }
+
+    tr:nth-child(even) {
+        background-color: $even-row-bg;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #container-documentation {
+        width: 95%;
+        padding: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+/* Additional styles for readability */
+h3 {
+    font-size: 22px;
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 5px;
+}
+
+p {
+    color: #555;
+}
+
+/* Add spacing for content */
+table + p {
+    margin-top: 20px;
+}

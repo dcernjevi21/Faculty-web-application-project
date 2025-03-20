@@ -1,0 +1,40 @@
+.user-details-container {
+    margin-top: 80px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 80px);
+  }
+  
+  .user-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    max-width: 600px;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+  
+    .user-info {
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 10px 0;
+  
+        strong {
+          color: #555;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  

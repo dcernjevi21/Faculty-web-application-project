@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <select 
+          [ngModel]="currentItemsPerPage"
+          (change)="onItemsPerPageChange($event)"
+          class="form-select">
+          <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+  
+        <div *ngFor="let person of persons" class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-2">
+              <img 
+                [src]="'https://image.tmdb.org/t/p/w200' + person.profile_path" 
+                class="img-fluid rounded"
+                *ngIf="person.profile_path"
+                [alt]="person.name">
+            </div>
+            <div class="col-md-10">
+              <div class="card-body">
+                <h5 class="card-title">{{ person.name }}</h5>
+                <p class="card-text">Known for: {{ person.known_for }}</p>
+                <p class="card-text">Popularity: {{ person.popularity }}</p>
+                <button class="btn btn-primary" (click)="goToDetails(person.id)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Pagination -->
+        <nav *ngIf="totalPages > 1">
+          <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" (click)="onPageChange(currentPage - 1)">Previous</a>
+            </li>
+            <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+                [class.active]="currentPage === i + 1">
+              <a class="page-link" (click)="onPageChange(i + 1)">{{ i + 1 }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <a class="page-link" (click)="onPageChange(currentPage + 1)">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>

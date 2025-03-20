@@ -1,0 +1,130 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+  
+  label {
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  input {
+    border: 1px solid #D1D5DB;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    width: 100%;
+    
+    &:focus {
+      outline: none;
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+    }
+  }
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  
+  th, td {
+    text-align: center; 
+    padding: 1rem;
+    border: 1px solid #E5E7EB;
+  }
+  
+  th {
+    background-color: #F9FAFB;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #6B7280;
+  }
+  
+  td {
+    vertical-align: middle;
+    
+    img {
+      margin: 0 auto; 
+      display: block;
+      border-radius: 4px;
+    }
+  }
+  
+  tbody tr:hover {
+    background-color: #F9FAFB;
+  }
+}
+
+
+.spinner-border {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25em solid #3B82F6;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  
+  button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #D1D5DB;
+    background-color: white;
+    color: #374151;
+    font-weight: 500;
+    
+    &:hover:not(:disabled) {
+      background-color: #F9FAFB;
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    &:first-child {
+      border-top-left-radius: 0.375rem;
+      border-bottom-left-radius: 0.375rem;
+    }
+    
+    &:last-child {
+      border-top-right-radius: 0.375rem;
+      border-bottom-right-radius: 0.375rem;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  table {
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+}

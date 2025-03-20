@@ -1,0 +1,62 @@
+<!-- persons.component.html -->
+<br><br><br>
+<div class="search-container">
+  <form (ngSubmit)="onSearch()">
+    <input 
+      type="text" 
+      [(ngModel)]="searchQuery" 
+      name="query" 
+      placeholder="Unesite pojam za pretragu" 
+      required 
+    />
+    <button type="submit">Traži</button>
+  </form>
+</div>
+
+<div class="persons-container">
+  <h2>Popis osoba</h2>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div class="table-responsive">
+    <table *ngIf="persons.length > 0">
+      <thead>
+        <tr>
+          <th>Slika</th>
+          <th>Ime</th>
+          <th>Poznato po</th>
+          <th>Akcije</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of persons">
+          <td class="image-cell">
+            <img 
+              *ngIf="person.profile_path" 
+              [src]="'https://image.tmdb.org/t/p/w92' + person.profile_path" 
+              [alt]="person.name"
+              class="profile-image"
+            >
+            <div *ngIf="!person.profile_path" class="no-image">
+              No Image
+            </div>
+          </td>
+          <td>{{ person.name }}</td>
+          <td>
+            <ul class="known-for-list">
+              <li *ngFor="let work of person.known_for">
+                {{ work.title }}
+              </li>
+            </ul>
+          </td>
+          <td class="action-buttons">
+            <button class="btn-add" (click)="onAdd(person.id)">Dodaj</button>
+            <button class="btn-delete" (click)="onDelete(person.id)">Izbriši</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+	--clr-primary: #d3d1d1;
+	--clr-accent: #3498db;
+	--clr-secondary: #2980b9;
+	--clr-black: black;
+	--clr-white: white;
+	--clr-subtext: #3a3a3a;
+	--clr-background: lightgray;
+	--clr-error: rgb(247, 40, 40);
+	--clr-success: rgb(69, 194, 69);
+
+	--fs-l: 1.5rem;
+	--fs-m: 1.125rem;
+	--fs-s: 1rem;
+	--fs-xs: 0.875rem;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: system-ui;
+	font-size: var(--fs-m);
+	line-height: 1.5;
+	min-height: 100dvh;
+	min-height: 100vh;
+	background-color: var(--clr-background);
+	
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+button {
+	padding: 0.6rem 1.5rem;
+	font-size: var(--fs-s);
+	background-color: var(--clr-accent);
+	color: var(--clr-white);
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+
+	transition: background-color 0.2s ease-in-out;
+	&:hover {
+		background-color: var(--clr-secondary);
+	}
+
+	&:disabled {
+		pointer-events: none;
+		opacity: 0.7;
+	}
+}

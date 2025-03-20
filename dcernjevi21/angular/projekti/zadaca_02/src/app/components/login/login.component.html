@@ -1,0 +1,26 @@
+<div id="login-div" class="login-container">
+    <h2>Login Forma</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="korime">Korisničko ime</label>
+        <input name="korime" type="text" id="korime" formControlName="username" placeholder="Unesite korisničko ime" />
+      </div>
+      <div class="form-group">
+        <label for="lozinka">Lozinka</label>
+        <input name="lozinka" type="password" id="lozinka" formControlName="password" placeholder="Unesite lozinku" />
+      </div>
+      <div class="form-group">
+        <label for="totp">TOTP</label>
+        <input name="totp" type="text" id="totp" formControlName="totp" placeholder="Unesite TOTP" />
+      </div>
+      <button type="submit" class="submit-btn">Pošalji</button>
+    </form>
+    <div class="login-info">
+      <p><strong>Testni podaci:</strong></p>
+      <p>Korisničko ime: admin | Lozinka: rwa | TOTP: nema | Pristup restu: ima</p>
+      <p>Korisničko ime: obican | Lozinka: rwa | TOTP: nema | Pristup restu: ima</p>
+      <p>Korisničko ime: test2 | Lozinka: test2 | TOTP: bilo koja vrijednost | Pristup restu: nema</p>
+      <p>Korisničko ime: test3 | Lozinka: test3 | TOTP: bilo koja vrijednost | Pristup restu: nema</p>
+    </div>
+  </div>
+  
