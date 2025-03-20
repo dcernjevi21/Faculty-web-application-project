@@ -48,4 +48,4 @@ Second terminal:
 - npm install
 - ng serve
 
-Pristup aplikaciji se vrši upisom localhost:12222/ u tražilicu. Korisnički podaci su na dnu stranice "Prijava".
+Access to the application is done by entering localhost:12222/ in the browser. User credentials can be found at the bottom of the "Login" page.
