@@ -28,3 +28,17 @@ The application consists of:
 - Responsive design with SCSS
 
 This project demonstrates my skills in full-stack web development, implementing modern web technologies, and creating secure user authentication systems.
+
+## Setup & Run Instructions
+
+### Backend Setup
+
+- cd server
+- npm run pripremi 
+- npm run servis
+
+### Frontend Setup
+
+- cd angular
+- npm install
+- ng serve
