@@ -2,6 +2,8 @@
 
 This is a project I've developed during my college studies for the course "Web Application Development", which was a direct continuation of the "Basics of Web Technologies" course.
 
+The project consists of a RESTful service and a web application that interact with a SQLite database and fetch movie data from The Movie Database (TMDB) API.
+
 ## Project overview
 
 The application consists of:
