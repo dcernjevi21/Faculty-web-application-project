@@ -31,14 +31,21 @@ This project demonstrates my skills in full-stack web development, implementing 
 
 ## Setup & Run Instructions
 
+This setup is written for Linux. Unzip the downloaded folder and access the dcernjevi21 directory.
+Follow the next steps.
+
 ### Backend Setup
 
+First terminal:
 - cd server
 - npm run pripremi 
 - npm run servis
 
 ### Frontend Setup
 
+Second terminal:
 - cd angular
 - npm install
 - ng serve
+
+Pristup aplikaciji se vrši upisom localhost:12222/ u tražilicu. Korisnički podaci su na dnu stranice "Prijava".
